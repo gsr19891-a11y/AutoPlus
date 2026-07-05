@@ -62,3 +62,4 @@ For more information on using the Angular CLI, including detailed command refere
 # caroment-car-rent-angular
 Car rental web application built with Angular 18+. Features include dynamic vehicle listing, category and specs filtering, responsive UI, automated email notifications, and REST API integration driven entirely by Angular Signals.
 >>>>>>> a133326e3a506010c76229b9958883706bc002ac
+"# AutoPlus" 
