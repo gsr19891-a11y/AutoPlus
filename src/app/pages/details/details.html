@@ -1,0 +1,80 @@
+<app-toast></app-toast>
+<section class="details-section">
+  <div class="details-div">
+    <div class="img-div">
+      <i class="fa-solid fa-circle-chevron-left exit" (click)="exitBtn()"></i>
+      <div class="main-image-container">
+        <img [src]="mainImage()" alt="Main Car Image" class="main-img" />
+      </div>
+
+      @if (carImages().length > 1) {
+        <div class="thumbnails-grid">
+          @for (img of carImages(); track $index) {
+            <div
+              class="thumbnail-item"
+              [class.active]="$index === selectedImgIdx()"
+              (click)="selectImage($index)"
+            >
+              <img [src]="img" alt="Car Thumbnail" />
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="info-text">
+      <div class="brand-div">
+        <h2>{{ productData()?.brand }}</h2>
+        <h3>{{ productData()?.model }}</h3>
+      </div>
+
+      <div class="info-div">
+        <p>
+          Year of release: <strong>{{ productData()?.year }}</strong>
+        </p>
+        <p>
+          Fuel tank capacity: <strong>{{ productData()?.fuelCapacity }}</strong>
+        </p>
+        <p>
+          Transmission: <strong>{{ productData()?.transmission }}</strong>
+        </p>
+        <p>
+          Multiplier: <strong>{{ productData()?.multiplier }}</strong>
+        </p>
+      </div>
+
+      <div class="price-div">
+        <p>How long do you want to rent?</p>
+
+        <div class="date-div">
+          <p class="decrement" (click)="decrementDays()">-</p>
+          <p class="day-text">{{ rentDays() }}</p>
+          <p class="increment" (click)="incrementDays()">+</p>
+        </div>
+        <div>
+          <p class="total-price">Total price:{{ totalPrice() }} ₾</p>
+        </div>
+
+        <div class="price-div">
+          <p class="price-text">Price: {{ productData()?.price }}₾ / day</p>
+        </div>
+
+        <button (click)="sendToWhatsapp(productData())" class="rent-btn">
+          Rent Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div>
+      <h3 class="description-title">Description</h3>
+      <p class="description-text">{{ productData()?.description }}</p>
+    </div>
+
+
+
+  <div class="map-container">
+ <div id="map" style="height: 100%; width: 100%;"></div>
+  </div>
+
+</section>

@@ -1,0 +1,155 @@
+<app-toast></app-toast>
+<main>
+  <section class="section-main">
+    <div class="carts-div">
+      <div>
+        <h3>საუკეთესო მანქანები საუკეთესო ფასად</h3>
+        <p>აირჩიე შენი სასურველი მანქანა ახლავე</p>
+      </div>
+
+      <button routerLink="/menu" class="rent-btn">ქირაობა</button>
+    </div>
+
+    <div class="carts-div">
+      <div>
+        <h3>სამშენებლო ტექნიკის მომსახურება</h3>
+        <p>თქვენი ნდობა - ჩენი პრიორიტეტია</p>
+      </div>
+
+      <button routerLink="/tech" class="rent-now">გახსნა</button>
+    </div>
+  </section>
+
+  <section class="popular-cars-section">
+    <h2>ჩვენი მანქანები</h2>
+    <div class="popular-cars">
+      @for (car of cars; track car.id) {
+        <div class="popular-car-card" [routerLink]="['/details', car.id]">
+          <div class="card-header">
+            <div>
+              <h3>{{ car.brand }}</h3>
+              <p>{{ car.model }} • {{ car.year }}</p>
+            </div>
+          </div>
+
+          <div class="img-div">
+            <img [src]="car.imageUrl1" alt="Car Image" />
+          </div>
+
+          <div class="card-footer">
+            <div class="card-footer-item">
+              <i class="fa-solid fa-gas-pump"></i>
+              <span>{{ car.fuelCapacity }}</span>
+            </div>
+
+            <div class="card-footer-item">
+              <i class="fa-solid fa-car-side"></i>
+              <span>{{ car.transmission }}</span>
+            </div>
+
+            <div class="card-footer-item">
+              <i class="fa-solid fa-person"></i>
+              <span>{{ car.multiplier }}</span>
+            </div>
+          </div>
+
+          <div class="price-and-action">
+            <div class="price">
+              {{ car.price }}$
+              <span>/day</span>
+            </div>
+
+            <button class="btn-rent">Rent Now</button>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="popular-cars-section">
+    <h2>სამშენებლო ტექნიკა</h2>
+    <section class="gallery">
+      <div class="title">
+        <span>OUR SERVICES</span>
+        <h2>ჩვენი შემოთავაზებები</h2>
+      </div>
+
+      <div class="filters">
+        <button class="active" routerLink="/tech">ვრცლად</button>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <img src="/work1.jpg" />
+
+          <div class="content">
+            <h3>ტრაქტორები და თვითმცლელები</h3>
+            <p>ნებისმიერი მოცულობის სამშენებლო მასალის სწრაფი და უსაფრთხო გადაზიდვა.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="/work2.jpg" />
+
+          <div class="content">
+            <h3>ექსკავატორი და თვითმცლელები</h3>
+            <p>მიწის სამუშაოებისა და დატვირთვის შესრულება თანამედროვე ტექნიკით.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="/work3.jpg" />
+
+          <div class="content">
+            <h3>დიდი მასშტაბი</h3>
+            <p>მასშტაბური სამშენებლო პროექტების შესრულება ხარისხისა და ვადების დაცვით.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <section class="why-us">
+
+  <h2>რატომ ჩვენ?</h2>
+
+  <div class="features">
+
+    <div class="feature">
+      <div class="icon">
+        <i class="fa-solid fa-bolt"></i>
+      </div>
+      <h3>სწრაფად</h3>
+      <p>მომსახურება სწრაფად და ხარისხიანად</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <h3>საიმედო</h3>
+      <p>სანდო და შემოწმებული მომსახურება</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">
+        <i class="fa-solid fa-award"></i>
+      </div>
+      <h3>სერტიფიცირებული</h3>
+      <p>პროფესიონალური სტანდარტები</p>
+    </div>
+
+  </div>
+
+</section>
+  </section>
+</main>
+
+<section class="contact" id="contact">
+
+  <h2>დაგვიკავშირდით</h2>
+<br>
+  <p>
+    ტელეფონი: +995 598 71 17 17
+  </p>
+
+</section>

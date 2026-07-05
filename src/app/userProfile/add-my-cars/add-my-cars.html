@@ -1,0 +1,47 @@
+<section class="add-car-section">
+  <div class="img-div">
+    <img src="/addCar.png" alt="" />
+  </div>
+  <div class="auth-section">
+    <h3>Add Your Car</h3>
+    <form [formGroup]="addCarForm" (ngSubmit)="onSubmit()">
+      <label for="brand">*Brand:</label>
+      <input type="text" id="brand" formControlName="brand" />
+
+      <label for="model">*Model:</label>
+      <input type="text" id="model" formControlName="model" />
+
+      <label for="year">*Year:</label>
+      <input type="number" id="year" formControlName="year" />
+
+      <label>Image 1</label>
+      <input type="file" (change)="onFileChange($event, 'image1')" id="image1" />
+
+      <label>Image 2</label>
+      <input type="file" (change)="onFileChange($event, 'image2')" id="image2" />
+
+      <label>Image 3</label>
+      <input type="file" (change)="onFileChange($event, 'image3')" id="image3" />
+
+      <label for="capacity">Capacity:</label>
+      <input type="number" id="capacity" formControlName="capacity" />
+
+      <label for="fuelCapacity">Fuel Capacity:</label>
+      <input type="number" id="fuelCapacity" formControlName="fuelCapacity" />
+
+      <label for="multiplier">Multiplier:</label>
+      <input type="number" id="multiplier" formControlName="multiplier" />
+
+      <label for="transmission">Transmission:</label>
+      <input type="text" id="transmission" formControlName="transmission" />
+
+      <label for="city">*City:</label>
+      <input type="text" id="city" formControlName="city" />
+
+      <label for="price">*Price:</label>
+      <input type="number" id="price" formControlName="price" />
+
+      <button type="submit" [disabled]="addCarForm.invalid">Submit</button>
+    </form>
+  </div>
+</section>

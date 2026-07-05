@@ -1,0 +1,44 @@
+
+@if (favoriteCars()) {
+  <div class="popular-cars">
+      @for (car of favoriteCars(); track $index) {
+        <div class="popular-car-card" [routerLink]="['/details', car.id]">
+          <div>
+            <div>
+              <h3>{{ car.brand }}</h3>
+              <p>{{ car.model }}/{{ car.year }}</p>
+            </div>
+          </div>
+
+          <div class="img-div">
+            <img [src]="car.imageUrl1" alt="Car Image" />
+          </div>
+          <div class="card-footer">
+            <div class="card-footer-item">
+              <i class="fa-solid fa-gas-pump"></i>
+              <span>{{ car.fuelCapacity }}</span>
+            </div>
+
+            <div class="card-footer-item">
+              <i class="fa-solid fa-car-side"></i>
+              <span>{{ car.transmission }}</span>
+            </div>
+
+            <div class="card-footer-item">
+              <i class="fa-solid fa-person"></i>
+              <span>{{ car.multiplier }}</span>
+            </div>
+          </div>
+          <div class="price-and-action">
+            <div class="price">{{ car.price }}/<span>Day</span></div>
+            <button class="btn-rent" (click)="rentCar(car.id); $event.stopPropagation()">Rent</button>
+          </div>
+        </div>
+      }
+    </div>
+}@else {
+<div class="no-cars">
+  <i class="fa-solid fa-square-xmark"></i>
+  <h2>No Cars Found</h2>
+</div>
+}

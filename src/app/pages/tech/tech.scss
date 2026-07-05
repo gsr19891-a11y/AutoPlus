@@ -1,0 +1,274 @@
+.hero {
+  padding: 120px 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+
+  color: white;
+
+  text-align: center;
+
+  h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    max-width: 800px;
+    margin: auto;
+
+    font-size: 20px;
+    line-height: 1.8;
+  }
+}
+
+.btn {
+  display: inline-block;
+
+  margin-top: 30px;
+
+  padding: 16px 34px;
+
+  background: #ff8f00;
+
+  color: white;
+
+  border-radius: 14px;
+
+  text-decoration: none;
+
+  font-weight: 700;
+}
+
+.video-section,
+.services,
+.gallery,
+.about,
+.contact {
+  padding: 90px 20px;
+
+  h2 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 50px;
+  }
+}
+
+.video-section_drone {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px;
+  background-color: #e2e2e2;
+}
+
+.video-placeholder {
+  height: 600px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background: #ececec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+.cards {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+  gap: 30px;
+}
+
+.card {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  transition: 0.25s;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+
+  h3 {
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: #666;
+    line-height: 1.7;
+  }
+}
+
+.gallery {
+  padding: 40px 20px;
+  background: #f8f9fa;
+
+  h2 {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.8rem;
+    color: #1e3d59;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #ff3333;
+      margin: 8px auto 0 auto;
+      border-radius: 2px;
+    }
+  }
+
+  .gallery-grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .photo {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 220px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(30, 61, 89, 0.15);
+
+      img {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+.about-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 20px;
+
+  div {
+    padding: 24px;
+
+    background: #2a3b9e;
+
+    color: #fff;
+
+    border-radius: 14px;
+
+    font-weight: 600;
+  }
+}
+
+.contact {
+  text-align: center;
+
+  background: #111;
+
+  color: white;
+
+  p {
+    font-size: 22px;
+  }
+}
+
+.hero {
+  background-image:
+    linear-gradient(rgba(0.2, 0.5, 0.5, 0.8), rgba(0, 0.5, 0.5, 0.6)), url('/back.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+.video-placeholder {
+  width: 100% !important;
+}
+
+.video-section_drone {
+  width: 100% !important;
+  height: 400px !important;
+}
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+.video-placeholder {
+  width: 100% !important;
+  height: 280px !important;
+
+}
+
+h2{
+font-size: 25px !important;}
+
+p{
+font-size: 15px !important;
+}
+
+h1{
+font-size: 20px !important;}
+
+
+
+.hero{
+padding: 20px 20px !important;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 12px;
+}
+
+.video-section{
+  width: 100% !important;
+  padding: 20px 20px !important;
+}
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: 10px !important;
+
+  }
+
+}
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+<section class="auth-section">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" formControlName="phoneNumber" id="phoneNumber" placeholder="(***)-**-**-**">
+
+        <label for="password">Password:</label>
+        <input type="password" formControlName="password" id="password" placeholder="Password">
+
+        <button type="submit" [disabled]="loginForm.get('password')?.invalid">Sign In <i class="fa-solid fa-arrow-right"></i></button>
+        <p>Haven't signed up yet? <a routerLink="/auth/register">Sign Up</a></p>
+
+
+    </form>
+
+</section>

@@ -1,0 +1,26 @@
+<section class="auth-section">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+
+
+          <label for="phoneNumber">Phone Number</label>
+        <input type="text" formControlName="phoneNumber" id="phoneNumber">
+
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="firstName" id="firstName">
+
+        <label for="lastName">Last Name</label>
+        <input type="text" formControlName="lastName" id="lastName">
+
+          <label for="email">Email</label>
+        <input type="email" formControlName="email" id="email">
+
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" id="password">
+
+        <button type="submit" [disabled]="registerForm.invalid">Sign Up <i class="fa-solid fa-arrow-right"></i></button>
+        <p>Haven't signed up yet? <a routerLink="/auth/login">Sign In</a></p>
+
+
+    </form>
+
+</section>

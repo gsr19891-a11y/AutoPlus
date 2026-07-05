@@ -1,0 +1,78 @@
+<app-toast></app-toast>
+<section>
+  <section class="banner-sec">
+
+  </section>
+
+<section class="booking-section">
+  <div class="booking-content">
+    <p class="booking-lead">
+      დაგეგმე მოგზაურობა ან საქმე გაქვს ქალაქში? - მაშინ ჩვენ დაგეხმარებით. ჩვენს სერვისს ენდობა უკვე ათასობით კმაყოფილი მომხმარებელი!
+    </p>
+
+    <div class="booking-features">
+      <p class="feature-item">
+        <i class="fa-solid fa-car"></i> სუფთა, დაზღვეული(სრული პაკეტით, როგორც მგზავრების, ასევე მესამე პირის დაზღვევით) და ტექნიკურად გამართული მანქანები.
+      </p>
+      <p class="feature-item">
+        <i class="fa-solid fa-lari-sign"></i> მოქნილი პირობები და ხელმისაწვდომი ფასები
+      </p>
+      <p class="feature-item">
+        <i class="fa-solid fa-indent"></i> ავტომობილი ქირავდება მინუმუმ 3 დღით, მოგიყვანთ ადგილზე უფასოდ, თბილისსა და რუსთავში.
+      </p>
+    </div>
+  </div>
+  
+  <div class="booking-image-wrapper">
+    <img src="/1200x900.webp" alt="AutoPlus Car" class="booking-image">
+    <img src="/xtera.jpg" class="booking-image img1" alt="AutoPlus Car">
+  </div>
+</section>
+
+  <section class="popular-cars-section">
+    <h2>ჩვენი მანქანები</h2>
+
+    <div class="popular-cars">
+      @for (car of cars; track car.id) {
+        <div class="popular-car-card" [routerLink]="['/details', car.id]">
+          <div class="card-header">
+            <div>
+              <h3>{{ car.brand }}</h3>
+              <p>{{ car.model }} • {{ car.year }}</p>
+            </div>
+          </div>
+
+          <div class="img-div">
+            <img [src]="car.imageUrl1" alt="Car Image" />
+          </div>
+
+          <div class="card-footer">
+            <div class="card-footer-item">
+              <i class="fa-solid fa-gas-pump"></i>
+              <span>{{ car.fuelCapacity }}</span>
+            </div>
+
+            <div class="card-footer-item">
+              <i class="fa-solid fa-car-side"></i>
+              <span>{{ car.transmission }}</span>
+            </div>
+
+            <div class="card-footer-item">
+              <i class="fa-solid fa-person"></i>
+              <span>{{ car.multiplier }}</span>
+            </div>
+          </div>
+
+          <div class="price-and-action">
+            <div class="price">
+              {{ car.price }}$
+              <span>/day</span>
+            </div>
+
+            <button class="btn-rent">Rent Now</button>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+</section>
