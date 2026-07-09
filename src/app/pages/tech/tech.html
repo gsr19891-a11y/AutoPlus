@@ -1,166 +1,124 @@
-<section class="hero">
+<app-toast></app-toast>
+<section>
+  <section class="banner-sec">
 
-  <div class="hero-content">
-    <h1>სამშენებლო ტექნიკა</h1>
+  </section>
 
-    <p>
-      ჩვენ გთავაზობთ პროფესიონალურ სამშენებლო მომსახურებას
-      თანამედროვე ტექნიკის გამოყენებით.
-      ვასრულებთ მიწის სამუშაოებს, გათხრას,
-      ტერიტორიის გასწორებას და სხვა ტექნიკურ მომსახურებებს.
-    </p>
-
-    <a href="tel:+995598711717" class="btn">
-      დაგვიკავშირდით
-    </a>
-  </div>
-
-</section>
-
-
-<section class="video-section">
-
-  <h2>ჩვენი სამუშაო პროცესში</h2>
-
-  <div >
-    <video class="video-placeholder" src="/video.webm" controls autoplay loop>
-    </video>
-
-  </div>
-
-</section>
-
-
-<section class="services">
-
-  <h2>რას ვაკეთებთ</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>🚜 მიწის გათხრა</h3>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>{{ 'TECH_PAGE.HERO_TITLE' | translate }}</h1>
 
       <p>
-        ვასრულებთ ნებისმიერი სირთულის
-        მიწის გათხრით სამუშაოებს.
+        {{ 'TECH_PAGE.HERO_DESC' | translate }}
       </p>
+
+      <a href="tel:+995598711717" class="btn">
+        {{ 'TECH_PAGE.CONTACT_BTN' | translate }}
+      </a>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>🏗 ტერიტორიის მომზადება</h3>
-
-      <p>
-        ტერიტორიის გასწორება და
-        სამშენებლო სამუშაოებისთვის მომზადება.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>⛏ ტრანშეების მოწყობა</h3>
-
-      <p>
-        კომუნიკაციებისა და ინფრასტრუქტურისთვის
-        ტრანშეების გათხრა.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🚚 მასალების გადატანა</h3>
-
-      <p>
-        ტექნიკის საშუალებით მიწისა და
-        მასალების გადაადგილება.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="gallery">
-  <h2>ფოტო გალერეა</h2>
-
-  <div class="gallery-grid">
-    <div class="photo">
-      <img src="/work11.jpg" alt="ექსკავატორ-დამტვირთავი Hidromek მუშაობის პროცესში">
-    </div>
-    
-    <div class="photo">
-      <img src="/work3.jpg" alt="თვითმცლელი HOWO სამშენებლო მოედანზე">
-    </div>
-    
-    <div class="photo">
-      <img src="/work12.jpg" alt="საბურავიანი ექსკავატორი Hyundai">
-    </div>
-    
-    <div class="photo">
-      <img src="/IMG_5823.jpeg" alt="სამშენებლო ტექნიკა ობიექტზე">
-    </div>
-
-    <div class="photo">
-      <img src="/IMG_5825.jpeg" alt="სამშენებლო ტექნიკა ობიექტზე">
-    </div>
-
-    <div class="photo">
-      <img src="/IMG_5824.jpeg" alt="სამშენებლო ტექნიკა ობიექტზე">
-    </div>
-
-  </div>
-</section>
-
-
-<section class="about">
-
-  <h2>რატომ ჩვენ?</h2>
-
-  <div class="about-grid">
+  <section class="video-section">
+    <h2>{{ 'TECH_PAGE.VIDEO_TITLE' | translate }}</h2>
 
     <div>
-      ✔ თანამედროვე ტექნიკა
+      <video class="video-placeholder" src="/video.webm" controls autoplay loop>
+      </video>
     </div>
+  </section>
 
+  <section class="services">
+    <h2>{{ 'TECH_PAGE.SERVICES_TITLE' | translate }}</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>{{ 'TECH_PAGE.SERVICE1_TITLE' | translate }}</h3>
+        <p>
+          {{ 'TECH_PAGE.SERVICE1_DESC' | translate }}
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>{{ 'TECH_PAGE.SERVICE2_TITLE' | translate }}</h3>
+        <p>
+          {{ 'TECH_PAGE.SERVICE2_DESC' | translate }}
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>{{ 'TECH_PAGE.SERVICE3_TITLE' | translate }}</h3>
+        <p>
+          {{ 'TECH_PAGE.SERVICE3_DESC' | translate }}
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>{{ 'TECH_PAGE.SERVICE4_TITLE' | translate }}</h3>
+        <p>
+          {{ 'TECH_PAGE.SERVICE4_DESC' | translate }}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>{{ 'TECH_PAGE.GALLERY_TITLE' | translate }}</h2>
+
+    <div class="gallery-grid">
+      <div class="photo">
+        <img src="/work11.jpg" [alt]="'TECH_PAGE.ALT_HIDROMEK' | translate">
+      </div>
+      
+      <div class="photo">
+        <img src="/work3.jpg" [alt]="'TECH_PAGE.ALT_HOWO' | translate">
+      </div>
+      
+      <div class="photo">
+        <img src="/work12.jpg" [alt]="'TECH_PAGE.ALT_HYUNDAI' | translate">
+      </div>
+      
+      <div class="photo">
+        <img src="/IMG_5823.jpeg" [alt]="'TECH_PAGE.ALT_GENERAL' | translate">
+      </div>
+
+      <div class="photo">
+        <img src="/IMG_5825.jpeg" [alt]="'TECH_PAGE.ALT_GENERAL' | translate">
+      </div>
+
+      <div class="photo">
+        <img src="/IMG_5824.jpeg" [alt]="'TECH_PAGE.ALT_GENERAL' | translate">
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>{{ 'TECH_PAGE.WHY_US_TITLE' | translate }}</h2>
+
+    <div class="about-grid">
+      <div>{{ 'TECH_PAGE.WHY_US_1' | translate }}</div>
+      <div>{{ 'TECH_PAGE.WHY_US_2' | translate }}</div>
+      <div>{{ 'TECH_PAGE.WHY_US_3' | translate }}</div>
+      <div>{{ 'TECH_PAGE.WHY_US_4' | translate }}</div>
+    </div>
+  </section>
+
+  <section class="video-section_drone">
     <div>
-      ✔ გამოცდილი ოპერატორები
-    </div>
-
-    <div>
-      ✔ სწრაფი შესრულება
-    </div>
-
-    <div>
-      ✔ მაღალი ხარისხი
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="video-section_drone">
-
-  <div >
-    <video class="video-placeholder_drone" src="/drone1.webm"
-     muted
-      autoplay
+      <video class="video-placeholder_drone" src="/drone1.webm"
+       muted
+       autoplay
        loop
        playsInline
        controlsList="nodownload noremoteplayback nofullscreen noplaybackrate"
-       disablePictureInPicture
-       >
-    </video>
+       disablePictureInPicture>
+      </video>
+    </div>
+  </section>
 
-  </div>
-
-</section>
-
-
-<section class="contact" id="contact">
-
-  <h2>დაგვიკავშირდით</h2>
-
-  <p>
-    ტელეფონი: +995 598 71 17 17
-  </p>
-
+  <section class="contact" id="contact">
+    <h2>{{ 'TECH_PAGE.CONTACT_TITLE' | translate }}</h2>
+    <p>
+      {{ 'TECH_PAGE.CONTACT_PHONE' | translate }} +995 598 71 17 17
+    </p>
+  </section>
 </section>

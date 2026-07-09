@@ -4,33 +4,55 @@
 
   </section>
 
-<section class="booking-section">
-  <div class="booking-content">
-    <p class="booking-lead">
-      დაგეგმე მოგზაურობა ან საქმე გაქვს ქალაქში? - მაშინ ჩვენ დაგეხმარებით. ჩვენს სერვისს ენდობა უკვე ათასობით კმაყოფილი მომხმარებელი!
-    </p>
+  <section class="car-rental-section">
+    <div class="container">
+      
+      <div class="rental-status">
+        <span class="status-badge">{{ 'RENTAL_PAGE.BADGE_RENTAL' | translate }}</span>
+      </div>
 
-    <div class="booking-features">
-      <p class="feature-item">
-        <i class="fa-solid fa-car"></i> სუფთა, დაზღვეული(სრული პაკეტით, როგორც მგზავრების, ასევე მესამე პირის დაზღვევით) და ტექნიკურად გამართული მანქანები.
-      </p>
-      <p class="feature-item">
-        <i class="fa-solid fa-lari-sign"></i> მოქნილი პირობები და ხელმისაწვდომი ფასები
-      </p>
-      <p class="feature-item">
-        <i class="fa-solid fa-indent"></i> ავტომობილი ქირავდება მინუმუმ 3 დღით, მოგიყვანთ ადგილზე უფასოდ, თბილისსა და რუსთავში.
-      </p>
+      <div class="rental-header">
+        <h2>{{ 'RENTAL_PAGE.HEADER_TITLE' | translate }}</h2>
+        <p class="subtitle">{{ 'RENTAL_PAGE.HEADER_SUBTITLE' | translate }}</p>
+      </div>
+
+      <div class="features-grid">
+        
+        <div class="feature-card">
+          <div class="card-icon">🛡️</div>
+          <h3>{{ 'RENTAL_PAGE.CARD1_TITLE' | translate }}</h3>
+          <p>{{ 'RENTAL_PAGE.CARD1_DESC' | translate }}</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon">💎</div>
+          <h3>{{ 'RENTAL_PAGE.CARD2_TITLE' | translate }}</h3>
+          <p>{{ 'RENTAL_PAGE.CARD2_DESC' | translate }}</p>
+        </div>
+
+        <div class="feature-card feature-card--highlight">
+          <div class="card-icon">📍</div>
+          <h3>{{ 'RENTAL_PAGE.CARD3_TITLE' | translate }}</h3>
+          <p>
+            {{ 'RENTAL_PAGE.CARD3_DESC_START' | translate }}<strong>{{ 'RENTAL_PAGE.FREE_HIGHLIGHT' | translate }}</strong>{{ 'RENTAL_PAGE.CARD3_DESC_END' | translate }}
+          </p>
+        </div>
+
+      </div>
+
+      <div class="rental-cta">
+        <div class="cta-text">
+          <h4>{{ 'RENTAL_PAGE.CTA_TITLE' | translate }}</h4>
+          <p>{{ 'RENTAL_PAGE.CTA_SUBTITLE' | translate }}</p>
+        </div>
+        <a href="tel:+995598711717" class="btn-primary">{{ 'RENTAL_PAGE.BOOK_BTN' | translate }}</a>
+      </div>
+
     </div>
-  </div>
-  
-  <div class="booking-image-wrapper">
-    <img src="/1200x900.webp" alt="AutoPlus Car" class="booking-image">
-    <img src="/xtera.jpg" class="booking-image img1" alt="AutoPlus Car">
-  </div>
-</section>
+  </section>
 
   <section class="popular-cars-section">
-    <h2>ჩვენი მანქანები</h2>
+    <h2>{{ 'CARS1.SECTION_TITLE' | translate }}</h2>
 
     <div class="popular-cars">
       @for (car of cars; track car.id) {
@@ -65,11 +87,11 @@
 
           <div class="price-and-action">
             <div class="price">
-              {{ car.price }}$
-              <span>/day</span>
+              {{ car.price }}₾
+              <span>{{ 'CARS1.DAY' | translate }}</span>
             </div>
 
-            <button class="btn-rent">Rent Now</button>
+            <button class="btn-rent">{{ 'CARS1.RENT_NOW' | translate }}</button>
           </div>
         </div>
       }

@@ -3,25 +3,25 @@
   <section class="section-main">
     <div class="carts-div">
       <div>
-        <h3>საუკეთესო მანქანები საუკეთესო ფასად</h3>
-        <p>აირჩიე შენი სასურველი მანქანა ახლავე</p>
+        <h3>{{ 'MAIN.CARS_TITLE' | translate }}</h3>
+        <p>{{ 'MAIN.CARS_SUBTITLE' | translate }}</p>
       </div>
 
-      <button routerLink="/menu" class="rent-btn">ქირაობა</button>
+      <button routerLink="/menu" class="rent-btn">{{ 'MAIN.RENT_BTN' | translate }}</button>
     </div>
 
     <div class="carts-div">
       <div>
-        <h3>სამშენებლო ტექნიკის მომსახურება</h3>
-        <p>თქვენი ნდობა - ჩენი პრიორიტეტია</p>
+        <h3>{{ 'MAIN.TECH_TITLE' | translate }}</h3>
+        <p>{{ 'MAIN.TECH_SUBTITLE' | translate }}</p>
       </div>
 
-      <button routerLink="/tech" class="rent-now">გახსნა</button>
+      <button routerLink="/tech" class="rent-now">{{ 'MAIN.OPEN_BTN' | translate }}</button>
     </div>
   </section>
 
   <section class="popular-cars-section">
-    <h2>ჩვენი მანქანები</h2>
+    <h2>{{ 'CARS.SECTION_TITLE' | translate }}</h2>
     <div class="popular-cars">
       @for (car of cars; track car.id) {
         <div class="popular-car-card" [routerLink]="['/details', car.id]">
@@ -55,11 +55,11 @@
 
           <div class="price-and-action">
             <div class="price">
-              {{ car.price }}$
-              <span>/day</span>
+              {{ car.price }}₾
+              <span>{{ 'CARS.DAY' | translate }}</span>
             </div>
 
-            <button class="btn-rent">Rent Now</button>
+            <button class="btn-rent">{{ 'CARS.RENT_NOW' | translate }}</button>
           </div>
         </div>
       }
@@ -67,15 +67,15 @@
   </section>
 
   <section class="popular-cars-section">
-    <h2>სამშენებლო ტექნიკა</h2>
+    <h2>{{ 'TECH.SECTION_TITLE' | translate }}</h2>
     <section class="gallery">
       <div class="title">
-        <span>OUR SERVICES</span>
-        <h2>ჩვენი შემოთავაზებები</h2>
+        <span>{{ 'TECH.OUR_SERVICES' | translate }}</span>
+        <h2>{{ 'TECH.OUR_OFFERS' | translate }}</h2>
       </div>
 
       <div class="filters">
-        <button class="active" routerLink="/tech">ვრცლად</button>
+        <button class="active" routerLink="/tech">{{ 'TECH.MORE' | translate }}</button>
       </div>
 
       <div class="cards">
@@ -83,8 +83,8 @@
           <img src="/work1.jpg" />
 
           <div class="content">
-            <h3>ტრაქტორები და თვითმცლელები</h3>
-            <p>ნებისმიერი მოცულობის სამშენებლო მასალის სწრაფი და უსაფრთხო გადაზიდვა.</p>
+            <h3>{{ 'TECH.WORK1_TITLE' | translate }}</h3>
+            <p>{{ 'TECH.WORK1_DESC' | translate }}</p>
           </div>
         </div>
 
@@ -92,8 +92,8 @@
           <img src="/work2.jpg" />
 
           <div class="content">
-            <h3>ექსკავატორი და თვითმცლელები</h3>
-            <p>მიწის სამუშაოებისა და დატვირთვის შესრულება თანამედროვე ტექნიკით.</p>
+            <h3>{{ 'TECH.WORK2_TITLE' | translate }}</h3>
+            <p>{{ 'TECH.WORK2_DESC' | translate }}</p>
           </div>
         </div>
 
@@ -101,55 +101,128 @@
           <img src="/work3.jpg" />
 
           <div class="content">
-            <h3>დიდი მასშტაბი</h3>
-            <p>მასშტაბური სამშენებლო პროექტების შესრულება ხარისხისა და ვადების დაცვით.</p>
+            <h3>{{ 'TECH.WORK3_TITLE' | translate }}</h3>
+            <p>{{ 'TECH.WORK3_DESC' | translate }}</p>
           </div>
         </div>
       </div>
     </section>
 
-   <section class="why-us">
+    <section class="why-us">
+      <h2>{{ 'WHY_US.TITLE' | translate }}</h2>
 
-  <h2>რატომ ჩვენ?</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="icon">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h3>{{ 'WHY_US.FAST_TITLE' | translate }}</h3>
+          <p>{{ 'WHY_US.FAST_DESC' | translate }}</p>
+        </div>
 
-  <div class="features">
+        <div class="feature">
+          <div class="icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3>{{ 'WHY_US.RELIABLE_TITLE' | translate }}</h3>
+          <p>{{ 'WHY_US.RELIABLE_DESC' | translate }}</p>
+        </div>
 
-    <div class="feature">
-      <div class="icon">
-        <i class="fa-solid fa-bolt"></i>
+        <div class="feature">
+          <div class="icon">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h3>{{ 'WHY_US.CERTIFIED_TITLE' | translate }}</h3>
+          <p>{{ 'WHY_US.CERTIFIED_DESC' | translate }}</p>
+        </div>
       </div>
-      <h3>სწრაფად</h3>
-      <p>მომსახურება სწრაფად და ხარისხიანად</p>
-    </div>
+    </section> <section class="services-section">
+      <div class="container">
+        
+        <div class="services-header">
+          <span class="badge">{{ 'SERVICES.BADGE' | translate }}</span>
+          <h1>{{ 'SERVICES.MAIN_TITLE' | translate }}</h1>
+          <p class="subtitle">{{ 'SERVICES.SUBTITLE' | translate }}</p>
+        </div>
 
-    <div class="feature">
-      <div class="icon">
-        <i class="fa-solid fa-shield-halved"></i>
+        <div class="tech-tags">
+          <span class="tag">{{ 'SERVICES.TAG_EXCAVATORS' | translate }}</span>
+          <span class="tag">{{ 'SERVICES.TAG_JCB' | translate }}</span>
+          <span class="tag">{{ 'SERVICES.TAG_TIPPERS' | translate }}</span>
+          <span class="tag">{{ 'SERVICES.TAG_TOW_TRUCK' | translate }}</span>
+        </div>
+
+        <div class="content-grid">
+          
+          <div class="content-card">
+            <h3>{{ 'SERVICES.OFFER_TITLE' | translate }}</h3>
+            <ul class="services-list">
+              <li>
+                <span class="icon">🏗️</span>
+                {{ 'SERVICES.OFFER_1' | translate }}
+              </li>
+              <li>
+                <span class="icon">🚛</span>
+                {{ 'SERVICES.OFFER_2' | translate }}
+              </li>
+              <li>
+                <span class="icon">🧱</span>
+                {{ 'SERVICES.OFFER_3' | translate }}
+              </li>
+              <li>
+                <span class="icon">🚜</span>
+                {{ 'SERVICES.OFFER_4' | translate }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="content-card content-card--dark">
+            <h3>{{ 'SERVICES.ADVANTAGES_TITLE' | translate }}</h3>
+            <ul class="features-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>{{ 'SERVICES.ADV_1_TITLE' | translate }}</strong>
+                  <p>{{ 'SERVICES.ADV_1_DESC' | translate }}</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>{{ 'SERVICES.ADV_2_TITLE' | translate }}</strong>
+                  <p>{{ 'SERVICES.ADV_2_DESC' | translate }}</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>{{ 'SERVICES.ADV_3_TITLE' | translate }}</strong>
+                  <p>{{ 'SERVICES.ADV_3_DESC' | translate }}</p>
+                </div>
+              </li>
+            </ul>
+            <div class="location-info">
+              {{ 'SERVICES.LOCATION_INFO' | translate }}
+            </div>
+          </div>
+
+        </div>
+
+        <div class="services-footer">
+          <div class="price-block">
+            <span class="price-label">{{ 'SERVICES.PRICE_AGREEMENT' | translate }}</span>
+            <span class="vat-label">{{ 'SERVICES.VAT' | translate }}</span>
+          </div>
+          <a href="tel:+995598711717" class="cta-button">{{ 'SERVICES.CONTACT_US' | translate }}</a>
+        </div>
+
       </div>
-      <h3>საიმედო</h3>
-      <p>სანდო და შემოწმებული მომსახურება</p>
-    </div>
-
-    <div class="feature">
-      <div class="icon">
-        <i class="fa-solid fa-award"></i>
-      </div>
-      <h3>სერტიფიცირებული</h3>
-      <p>პროფესიონალური სტანდარტები</p>
-    </div>
-
-  </div>
-
-</section>
+    </section>
   </section>
 </main>
 
 <section class="contact" id="contact">
-
-  <h2>დაგვიკავშირდით</h2>
-<br>
-  <p>
-    ტელეფონი: +995 598 71 17 17
-  </p>
-
+  <h2>{{ 'CONTACT.TITLE' | translate }}</h2>
+  <br />
+  <p>{{ 'CONTACT.PHONE' | translate }} +995 598 71 17 17</p>
 </section>

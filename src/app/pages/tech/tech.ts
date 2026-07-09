@@ -1,13 +1,16 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 import { register } from 'swiper/element/bundle';
+import { TranslatePipe } from '../../pipes/translate-pipe';
+import { LangService } from '../../services/lang-service';
 
 
 register();
 
 @Component({
   selector: 'app-tech',
-  imports: [],
+  imports: [TranslatePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './tech.html',
   styleUrl: './tech.scss',
@@ -15,8 +18,8 @@ register();
 })
 export class Tech {
 
-ngOnInit() {
+  langService = inject(LangService)
+
+
   
-    register();
-  }
 }

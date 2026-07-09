@@ -269,7 +269,47 @@ $radius-sm: 8px;
     margin-top: 20px;
     margin-bottom: 100px;
   }
+
+
+
+  .price-ul{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 0px 10px;
+
+  
+ 
+    li{
+      text-align: center;
+      background-color: #2457ff;
+      padding: 20px;
+      border-radius: 12px;
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 600;
+      transition: all 0.3s ease-in-out;
+  &:hover,
+    &:active {
+      background-color: #1e40af;
+      transform: translateY(10px);
+    }
+
+    }
+  
+  
+  }
 }
+
+
+
+
+
+
+
+
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
 

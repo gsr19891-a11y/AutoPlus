@@ -1,33 +1,28 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { AuthService } from '../../services/auth-service';
+
 import { HttpService } from '../../services/http-service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { map, Observable } from 'rxjs';
+import { LangService } from '../../services/lang-service';
+import { TranslatePipe } from '../../pipes/translate-pipe';
 
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, DragDropModule, RouterLinkActive],
+  imports: [RouterLink, DragDropModule, RouterLinkActive,TranslatePipe],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
 export class Header {
-  public authService = inject(AuthService);
 
-  phoneNumber = this.authService.userPhoneNumber;
 
   messageToggle = signal(false);
   messageCount = signal(0);
 
-  constructor(
-    private httpService: HttpService,
-    private router: Router
+  langService = inject(LangService);
 
-  ) {
-    this.phoneNumber.set(localStorage.getItem('phoneNumber'));
-  }
 
 
 isContOpen = signal(false);
@@ -44,6 +39,10 @@ toggleBurger() {
 }
  
 
+ changeLang(event: Event) {
+    const lang = (event.target as HTMLSelectElement).value as 'en' | 'ka';
+    this.langService.setLanguage(lang);
+  }
 
 
 }

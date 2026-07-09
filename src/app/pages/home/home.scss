@@ -42,6 +42,280 @@ main {
     }
   }
 
+  
+// Переменные для легкой кастомизации
+$color-dark: #1a1a1a;
+$color-light-dark: #242424;
+$color-accent: #ffcc00; // Фирменный желтый JCB
+$color-accent-hover: #e6b800;
+$color-text-main: #333333;
+$color-text-muted: #666666;
+$color-bg: #f9f9f9;
+$border-radius: 12px;
+$transition: all 0.3s ease;
+
+.services-section {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; // Рекомендую подключить грузинский шрифт, например, Noto Sans Georgian
+  background-color: $color-bg;
+  padding: 60px 20px;
+  color: $color-text-main;
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+}
+
+// Шапка
+.services-header {
+  text-align: center;
+  margin-bottom: 40px;
+
+  .badge {
+    background-color: rgba($color-accent, 0.15);
+    color: darken($color-accent, 20%);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: $color-dark;
+    margin: 0 0 16px 0;
+    line-height: 1.3;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: $color-text-muted;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+// Теги техники
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+
+  .tag {
+    background: #ffffff;
+    padding: 10px 20px;
+    border-radius: $border-radius;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border: 1px solid #eeeeee;
+    transition: $transition;
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: $color-accent;
+    }
+
+    &--highlight {
+      background-color: $color-accent;
+      border-color: $color-accent;
+      color: $color-dark;
+    }
+  }
+}
+
+// Сетка контента
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Карточки
+.content-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: $border-radius;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
+
+  h3 {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: $color-dark;
+    border-bottom: 2px solid $color-accent;
+    padding-bottom: 10px;
+    display: inline-block;
+  }
+
+  // Темная карточка для преимуществ
+  &--dark {
+    background: $color-dark;
+    color: #ffffff;
+    border: none;
+
+    h3 {
+      color: #ffffff;
+    }
+  }
+}
+
+// Список услуг
+.services-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 0;
+    font-size: 16px;
+    border-bottom: 1px solid #f5f5f5;
+    font-weight: 500;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .icon {
+      font-size: 20px;
+      background: #f9f9f9;
+      padding: 8px;
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+// Список преимуществ
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+
+    .check-icon {
+      background: $color-accent;
+      color: $color-dark;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: #aaaaaa;
+    }
+  }
+}
+
+.location-info {
+  background: $color-light-dark;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  border-left: 3px solid $color-accent;
+}
+
+// Футер блока
+.services-footer {
+  background: #ffffff;
+  padding: 24px 40px;
+  border-radius: $border-radius;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
+  @media (min-width: 576px) {
+    flex-direction: row;
+  }
+
+  .price-block {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+
+    .price-label {
+      font-size: 24px;
+      font-weight: 800;
+      color: $color-dark;
+    }
+
+    .vat-label {
+      font-size: 14px;
+      color: $color-text-muted;
+      font-weight: 600;
+      background: #eeeeee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  }
+
+  .cta-button {
+    background-color: $color-bg-dark;
+    color: white;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: $transition;
+    text-align: center;
+    width: 100%;
+
+    @media (min-width: 576px) {
+      width: auto;
+    }
+
+    &:hover {
+      background-color: $color-accent-hover;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba($color-accent, 0.3);
+    }
+  }
+}
   .section-main {
     display: flex;
     gap: 24px;
@@ -51,8 +325,7 @@ main {
     padding: 20px 0;
     box-sizing: border-box;
 
-    @media (max-width: 768px) {
-    }
+
 
     .carts-div {
       flex: 1;

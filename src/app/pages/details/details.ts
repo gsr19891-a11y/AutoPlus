@@ -3,17 +3,18 @@ import { HttpService } from '../../services/http-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { GoogleMap, MapMarker } from '@angular/google-maps';
-import { AuthService } from '../../services/auth-service';
 import { ToastService } from '../../services/toast';
 import { ToastComponent } from "../../components/toast/toast";
 import { map, Observable } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import * as L from 'leaflet';
+import { TranslatePipe } from '../../pipes/translate-pipe';
+import { LangService } from '../../services/lang-service';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [GoogleMapsModule, ToastComponent],
+  imports: [GoogleMapsModule, ToastComponent,TranslatePipe],
   templateUrl: './details.html',
   styleUrl: './details.scss',
 })
@@ -23,12 +24,12 @@ export class Details {
   rentDays = signal<number>(1);
    toastService = inject(ToastService);
   httpService = inject(HttpService);
+  langService = inject(LangService);
   
  public cars = this.httpService.cars;
    
   constructor(
     private routes: ActivatedRoute,
-    private authService: AuthService,
     private router: Router
   ) {}
 
@@ -75,29 +76,6 @@ carImages = computed<string[]>(() => {
     this.selectedImgIdx.set(index);
   }
 
-  // maps:
-
-//   mapOptions: google.maps.MapOptions = {
-//     disableDefaultUI: false,
-//     mapTypeControl: false,
-//     streetViewControl: false,
-//   };
-
-// coordinates = computed<google.maps.LatLngLiteral>(() => {
-//   const data = this.productData();
-  
- 
-//   if (!data?.latitude || !data?.longitude) {
-//     return { lat: 41.7151, lng: 44.8271 };
-//   }
-
-//   return {
-//     lat: Number(data.latitude),
-//     lng: Number(data.longitude),
-//   };
-// });
-
-
 
 
 
@@ -130,6 +108,9 @@ sendToWhatsapp(car: any) {
 Марка: ${car.brand}
 Модель: ${car.model}
 Цена: ${car.price} Лари
+На ${this.rentDays()} дня(дней)
+Спасибо!.
+
 `;
 console.log(message);
 
@@ -142,13 +123,38 @@ console.log(message);
 
 
   
-  totalPrice = computed(() => {
-    const carPrice = Number(this.productData()?.price) || 0;
-    return carPrice * this.rentDays();
-  });
+totalPrice = computed(() => {
+ 
+  const basePrice = Number(this.productData()?.price) || 0;
+  const days = this.rentDays() || 0;
+
+  if (days <= 0) return 0;
+
+  let discountPerDay = 0;
+
+  if (days <= 3) {
+    discountPerDay = 0; 
+  } else if (days <= 5) {
+    discountPerDay = 10; 
+  } else if (days <= 10) {
+    discountPerDay = 20; 
+  } else {
+    discountPerDay = 30; 
+  }
+
+  const finalPricePerDay = basePrice - discountPerDay;
+
+
+  return finalPricePerDay * days;
+});
 
   incrementDays(): void {
-    this.rentDays.update((days) => days + 1);
+
+      this.rentDays.update((days) => days + 1);
+   
+
+    
+
   }
 
   decrementDays(): void {
@@ -157,44 +163,14 @@ console.log(message);
     }
   }
 
-  rentCar(carId: number){
-  if(localStorage.getItem('phoneNumber') == null){
-    return this.toastService.show("Please login to rent a car");
-  }else{
 
-  this.httpService.rentCar(this.authService.userPhoneNumber(), carId, this.rentDays()).subscribe({
-    next: (res: any) => {
-      this.toastService.show('Car rented successfully!');
-      console.log(carId);
-      this.sendMessage();
-
-
-      
-    },
-    error: (err) => {
-      console.log(err);
-    }
-  })
-}
-}
 
 
 exitBtn(){
   this.router.navigate(['']);
 }
 
-sendMessage(){
-  this.httpService.postMessage(this.productData()?.ownerPhoneNumber || null, this.productData()?.id).subscribe({
-    next: (res: any) => {
-      this.toastService.show('Message sent successfully!');
-      console.log(res);
-      
-    },
-    error: (err) => {
-      console.log(err);
-    }
-  })
-}
+
 
 
 

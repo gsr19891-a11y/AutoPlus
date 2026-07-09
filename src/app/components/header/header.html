@@ -5,49 +5,70 @@
     </div>
 
     <div class="nav-div">
-
       <nav class="nav-div">
+        <select (change)="changeLang($event)">
+          <option value="en" disabled selected>
+            {{ 'HEADER.LANG_SELECT' | translate }}
+          </option>
+          <option value="ka">{{ 'HEADER.LANG_GEORGIAN' | translate }}</option>
+          <option value="en">{{ 'HEADER.LANG_ENGLISH' | translate }}</option>
+          <option value="ru">{{ 'HEADER.LANG_RUSSIAN' | translate }}</option>
+        </select>
+
         <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-          მთავარი
+          {{ 'HEADER.NAV_MAIN' | translate }}
         </a>
         <a routerLink="/menu" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-          მანქანები
+          {{ 'HEADER.NAV_CARS' | translate }}
         </a>
-
-        <a routerLink="/tech" routerLinkActive="active"> სამშენებლო ტექნიკა </a>
+        <a routerLink="/tech" routerLinkActive="active">
+          {{ 'HEADER.NAV_TECH' | translate }}
+        </a>
       </nav>
-      <a class="contact-phone contact" href="tel:+995598711717">📞 დაგვიკავშირდით: +995 598 71 17 17</a>
 
-     
-        <div (click)="toggleBurger()" class="burder-icon"><i class="fa-solid fa-bars"></i></div>
-        
+      <a class="contact-phone contact" href="tel:+995598711717">
+        {{ 'HEADER.CONTACT_US_BTN' | translate }}
+      </a>
 
-
-
+      <div (click)="toggleBurger()" class="burder-icon">
+        <i class="fa-solid fa-bars"></i>
+      </div>
     </div>
   </div>
 
-  @if(buregerToggle()){
-  <div class="burger-menu">
+  @if (buregerToggle()) {
+    <div class="burger-menu">
+      <i class="fa-solid fa-xmark" (click)="toggleBurger()"></i>
 
-    <i class="fa-solid fa-xmark" (click)="toggleBurger()"></i>
-
-    <div class="burger-header">
-      
-       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-          მთავარი
+      <div class="burger-header">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          {{ 'HEADER.NAV_MAIN' | translate }}
         </a>
         <a routerLink="/menu" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-          მანქანები
+          {{ 'HEADER.NAV_CARS' | translate }}
         </a>
+        <a routerLink="/tech" routerLinkActive="active">
+          {{ 'HEADER.NAV_SPECIAL_TECH' | translate }}
+        </a>
+      </div>
+     
+      <hr>
 
-        <a routerLink="/tech" routerLinkActive="active"> სპეცტექნიკა </a>
+    <div class="contact-div_burger">
+        <a class="contact-phone_burger" href="tel:+995598711717">📞: +995 598 71 17 17</a>
+  
+  
+         <select (change)="changeLang($event)">
+            <option value="en" disabled selected>
+              {{ 'HEADER.LANG_SELECT' | translate }}
+            </option>
+            <option value="ka">{{ 'HEADER.LANG_GEORGIAN' | translate }}</option>
+            <option value="en">{{ 'HEADER.LANG_ENGLISH' | translate }}</option>
+            <option value="ru">{{ 'HEADER.LANG_RUSSIAN' | translate }}</option>
+          </select>
     </div>
-    <hr>
-    <a class="contact-phone_burger" href="tel:+995598711717">📞: +995 598 71 17 17</a>
-
-  </div>
-}
+    </div>
+  }
 
   <div class="contact-icon" (click)="toggleCont()">
     <i class="fa-solid fa-phone"></i>
@@ -56,20 +77,20 @@
   @if (isContOpen()) {
     <div class="contact-div">
       <div class="contact-header">
-        <p>დაგვიკავშირდით:</p>
+        <p>{{ 'HEADER.CONTACT_US' | translate }}</p>
         <i class="fa-solid fa-circle-xmark" (click)="toggleCont()"></i>
       </div>
 
-      <a class="contact-phone" href="tel:+995598711717"
-        ><i class="fa-solid fa-phone-volume"></i> +995 598 71 17 17</a
-      >
-      <a class="contact-phone" href="https://wa.me/995598711717" target="_blank"
-        ><img src="/whatsapp.png" alt="" /><i class="fa-brands fa-whatsapp"></i> +995 598 71 17
-        17</a
-      >
+      <a class="contact-phone" href="tel:+995598711717">
+        <i class="fa-solid fa-phone-volume"></i> +995 598 71 17 17
+      </a>
+      <a class="contact-phone" href="https://wa.me/995598711717" target="_blank">
+        <img src="/whatsapp.png" alt="" /><i class="fa-brands fa-whatsapp"></i> +995 598 71 17 17
+      </a>
       <a class="mail" href="mailto:rentcars.autoplus@gmail.com">
         <i class="fa-solid fa-envelope"></i> rentcars.autoplus@gmail.com
       </a>
+
     </div>
   }
 </header>
