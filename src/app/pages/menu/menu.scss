@@ -1,3 +1,6 @@
+@use 'sass:color';
+
+// Переменные
 $color-bg-light: #54a2f3;
 $color-bg-dark: #3563e9;
 $color-text: #ffffff;
@@ -20,8 +23,7 @@ $border-radius-sm: 8px;
 $shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
 $transition: all 0.25s ease-in-out;
 
-
-
+// Секция аренды авто
 .car-rental-section {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   background-color: $color-bg-light;
@@ -34,26 +36,25 @@ $transition: all 0.25s ease-in-out;
   }
 }
 
-
+// Статус-badge
 .rental-status {
   text-align: center;
   margin-bottom: 20px;
 
   .status-badge {
     background-color: rgba($color-secondary, 0.1);
-    color: darken($color-secondary, 5%);
+    border: 1px solid rgba($color-secondary, 0.2);
     padding: 8px 24px;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 50px;
-    border: 1px solid rgba($color-secondary, 0.2);
     display: inline-block;
   }
 }
 
-
+// Заголовок секции
 .rental-header {
   text-align: center;
   margin-bottom: 50px;
@@ -78,6 +79,7 @@ $transition: all 0.25s ease-in-out;
   }
 }
 
+// Сетка преимуществ
 .features-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -89,7 +91,7 @@ $transition: all 0.25s ease-in-out;
   }
 }
 
-
+// Карточка преимущества
 .feature-card {
   background: #ffffff;
   padding: 30px;
@@ -131,9 +133,8 @@ $transition: all 0.25s ease-in-out;
     margin: 0;
   }
 
-
   &--highlight {
-    background: linear-gradient(135deg, $color-primary, darken($color-primary, 15%));
+    background: linear-gradient(135deg, $color-primary, color.adjust($color-primary, $lightness: -15%));
     color: #ffffff;
     border: none;
 
@@ -158,7 +159,7 @@ $transition: all 0.25s ease-in-out;
   }
 }
 
-
+// Блок призыва к действию (CTA)
 .rental-cta {
   background: #ffffff;
   border-radius: $border-radius-lg;
@@ -178,6 +179,7 @@ $transition: all 0.25s ease-in-out;
 
   .cta-text {
     text-align: center;
+    
     @media (min-width: 640px) {
       text-align: left;
     }
@@ -214,48 +216,35 @@ $transition: all 0.25s ease-in-out;
     }
 
     &:hover {
-      background-color: darken($color-secondary, 5%);
+      background-color: color.adjust($color-secondary, $lightness: 5%); // ИСПРАВЛЕНО ТУТ
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba($color-secondary, 0.4);
     }
   }
 }
-section {
 
+// Стили базовой секции баннера
+section {
   margin-bottom: 80px;
 
-  h2{
-  padding-top: 50px;
-   max-width: 1200px;
-  margin: 0 auto;
+  h2 {
+    padding-top: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-
-  .banner-sec{
-
-    img{
-width: 100%;
-height: 130%;
-
+  .banner-sec {
+    img {
+      width: 100%;
+      height: 130%;
     }
   }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+// Секция популярных автомобилей
 .popular-cars {
   max-width: 1200px;
   margin: 0 auto;
-
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
   gap: 30px;
@@ -355,31 +344,27 @@ height: 130%;
     }
   }
 }
-}
 
+// --- МЕДИА ЗАПРОСЫ (Планшеты) ---
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-
-   .banner-sec{
-
-  background-size: cover;
-  overflow: visible !important;
+  .banner-sec {
+    background-size: cover;
+    overflow: visible !important;
   }
 
-  .img1{
-  display: none !important;}
+  .img1 {
+    display: none !important;
+  }
 
-  .popular-cars, h2{
-  padding: 10px !important;
+  .popular-cars, h2 {
+    padding: 10px !important;
   }
   
-   .booking-image-wrapper {
+  .booking-image-wrapper {
     flex-direction: column !important;
-    align-items: center !important;}
+    align-items: center !important;
+  }
 
-}
-
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
   .main-div {
     grid-template-columns: 1fr !important;
 
@@ -390,7 +375,6 @@ height: 130%;
 
   .pagination-container {
     gap: 5px !important;
-
     margin: 30px 0 !important;
     padding: 10px 15px !important;
 
@@ -401,38 +385,38 @@ height: 130%;
   }
 }
 
+// --- МЕДИА ЗАПРОСЫ (Мобильные) ---
 @media screen and (min-width: 320px) and (max-width: 767px) {
-
-
-   .banner-sec{
-  height: 100%;
-  background-size: cover;
-  overflow: visible !important;
+  .banner-sec {
+    height: 100%;
+    background-size: cover;
+    overflow: visible !important;
   }
 
-  .car-rental-section{
+  .car-rental-section {
     padding: 20px 20px !important;
   }
 
-  .img1{
-  display: none !important;}
+  .img1 {
+    display: none !important;
+  }
 
-  .popular-cars, h2{
-  padding: 10px !important;
+  .popular-cars, h2 {
+    padding: 10px !important;
   }
   
-   .booking-image-wrapper {
+  .booking-image-wrapper {
     flex-direction: column !important;
-    align-items: center !important;}
+    align-items: center !important;
+  }
 
-    .popular-car-card{
+  .popular-car-card {
     padding: 10px !important;
-    }
+  }
 
-
-    .popular-cars {
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
-  gap: 20px !important;
-  padding: 10px 0 !important;}
-
+  .popular-cars {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+    gap: 20px !important;
+    padding: 10px 0 !important;
+  }
 }

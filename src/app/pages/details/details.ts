@@ -8,6 +8,7 @@ import { ToastComponent } from "../../components/toast/toast";
 import { map, Observable } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import * as L from 'leaflet';
+
 import { TranslatePipe } from '../../pipes/translate-pipe';
 import { LangService } from '../../services/lang-service';
 
@@ -84,6 +85,21 @@ carImages = computed<string[]>(() => {
 private map: L.Map | undefined;
 
 ngAfterViewInit() {
+  // Исправление бага с путями к маркерам Leaflet
+  const iconDefault = L.icon({
+    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    tooltipAnchor: [16, -28],
+    shadowSize: [41, 41]
+  });
+  
+  L.Marker.prototype.options.icon = iconDefault;
+
+  // Твой оригинальный код карты
   const coords: L.LatLngExpression = [41.5615531, 44.9779702]; 
 
   this.map = L.map('map').setView(coords, 13);
@@ -96,8 +112,6 @@ ngAfterViewInit() {
     .bindPopup('Здесь находится машина!');
 }
 
-
-
 sendToWhatsapp(car: any) {
   const phone = '995598711717';
 
@@ -107,7 +121,7 @@ sendToWhatsapp(car: any) {
 
 Марка: ${car.brand}
 Модель: ${car.model}
-Цена: ${car.price} Лари
+Цена: ${this.totalPrice()} Лари
 На ${this.rentDays()} дня(дней)
 Спасибо!.
 
